@@ -67,6 +67,7 @@ then
 	if test $1 == "-h"
 	then
 		showhelp
+		read
 	 elif test $1 == "-b"
 	 then
 	 	bambooReport
