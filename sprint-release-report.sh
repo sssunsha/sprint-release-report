@@ -34,7 +34,7 @@ generateProjectReleaseNotes() {
 	git fetch --all
 	echo "start $project master and develop branch compare"
 	git rev-parse --short origin/develop >> $release_notes
-	git --no-pager log origin/master...origin/develop | grep 'Merge pull request' | sort -u >> $release_notes
+	git --no-pager log origin/master...origin/develop | grep \#[0-9]* | sort -u >> $release_notes
 	echo "----------------------------------------------------------------------------" >> $release_notes
 	echo >> $release_notes
 	echo "finish $project"
