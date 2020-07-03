@@ -27,8 +27,8 @@ project_name_mooncake=("order-broker" "order-export" "shipping-service" "tax-ser
 
 generateProjectReleaseNotes() {
 	cd $project_dir/$project
-	echo [$project] : >> $release_notes
 	echo "----------------------------------------------------------------------------" >> $release_notes
+	echo [$project]: >> $release_notes
 	echo "start $project"
 	echo "start $project fetch"
 	git fetch --all
