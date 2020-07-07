@@ -28,12 +28,13 @@ project_name_mooncake=("order-broker" "order-export" "shipping-service" "tax-ser
 generateProjectReleaseNotes() {
 	cd $project_dir/$project
 	echo "----------------------------------------------------------------------------" >> $release_notes
-	echo [$project]: >> $release_notes
+	echo $project: >> $release_notes
 	echo "start $project"
 	echo "start $project fetch"
 	git fetch --all
 	echo "start $project master and develop branch compare"
-	git rev-parse --short origin/develop >> $release_notes
+	sha1=`git rev-parse --short origin/develop`
+	 echo [$sha1]>> $release_notes
 	git --no-pager log origin/master...origin/develop | grep \#[0-9] | sort -u >> $release_notes
 	echo "----------------------------------------------------------------------------" >> $release_notes
 	echo >> $release_notes
